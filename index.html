@@ -85,7 +85,7 @@
 
     <!-- Header Murid -->
     <div id="user-header" class="max-w-5xl mx-auto px-4 mt-2 flex justify-between items-center text-[10px] text-gray-400 font-bold uppercase tracking-widest">
-        <div>HI, <span id="display-nama" class="text-indigo-600">MURID</span></div>
+        <div>HI, <span id="display-nama" class="text-indigo-600">...</span> &nbsp; <button onclick="resetUser()" class="underline hover:text-red-500 lowercase">(Tukar Nama)</button></div>
         <div id="sync-status" class="text-indigo-400 italic">Menyambung...</div>
     </div>
 
@@ -103,7 +103,7 @@
         <canvas id="drawing-canvas"></canvas>
     </div>
 
-    <main class="max-w-5xl mx-auto p-4 mt-2">
+    <main id="app-content" class="max-w-5xl mx-auto p-4 mt-2 hidden-section">
         <!-- PEMILIH TAHAP -->
         <div class="mb-8 flex justify-center gap-4">
             <button onclick="setLevel('beginner')" id="lvl-beginner" class="level-btn level-active">Tahap 1</button>
@@ -112,7 +112,6 @@
 
         <!-- SEKSYEN: TUTORIAL -->
         <section id="section-learn" class="tab-content">
-            <!-- Tutorial Tahap 1 -->
             <div id="learn-beginner" class="learn-level-content space-y-6">
                 <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 space-y-6">
                     <h2 class="text-xl font-bold text-indigo-800 flex items-center gap-2"><span>📖</span> Tutorial Tahap 1: Satu Langkah</h2>
@@ -122,40 +121,25 @@
                         <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-400">
                             <h3 class="font-bold text-blue-800 mb-2">Contoh Tambah (+)</h3>
                             <p class="text-lg mb-4"><b class="text-indigo-600">x</b> <b class="text-red-500">+</b> <b class="text-orange-500">5</b> <b class="text-red-500">=</b> <b class="text-orange-500">12</b></p>
-                            <p class="text-xs text-gray-600 mb-2">1. Pindahkan <b class="text-red-500">+5</b> melepasi simbol <b class="text-red-500">=</b>.</p>
-                            <p class="text-xs text-gray-600 mb-2">2. Simbol <b class="text-red-500">+</b> berubah menjadi <b class="text-red-500">-</b>.</p>
                             <p class="bg-white p-2 rounded mt-2 font-bold"><b class="text-indigo-600">x</b> = 12 <b class="text-red-500">-</b> 5 = 7</p>
                         </div>
                         <div class="bg-orange-50 p-6 rounded-2xl border-l-4 border-orange-400">
                             <h3 class="font-bold text-orange-800 mb-2">Contoh Tolak (-)</h3>
                             <p class="text-lg mb-4"><b class="text-indigo-600">x</b> <b class="text-red-500">-</b> <b class="text-orange-500">8</b> <b class="text-red-500">=</b> <b class="text-orange-500">4</b></p>
-                            <p class="text-xs text-gray-600 mb-2">1. Pindahkan <b class="text-red-500">-8</b> melepasi simbol <b class="text-red-500">=</b>.</p>
-                            <p class="text-xs text-gray-600 mb-2">2. Simbol <b class="text-red-500">-</b> berubah menjadi <b class="text-red-500">+</b>.</p>
                             <p class="bg-white p-2 rounded mt-2 font-bold"><b class="text-indigo-600">x</b> = 4 <b class="text-red-500">+</b> 8 = 12</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tutorial Tahap 2 -->
             <div id="learn-intermediate" class="learn-level-content hidden-section space-y-6">
                 <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 space-y-6">
                     <h2 class="text-xl font-bold text-indigo-800 flex items-center gap-2"><span>📘</span> Tutorial Tahap 2: Dua Langkah</h2>
-                    <p class="text-sm text-gray-600">Kita selesaikan <b>Tambah/Tolak</b> dahulu, baru selesaikan <b>Darab</b>.</p>
-                    
                     <div class="bg-indigo-50 p-6 rounded-2xl border-l-4 border-indigo-400">
                         <h3 class="font-bold text-indigo-800 mb-4">Contoh: <b class="text-orange-500">2</b><b class="text-indigo-600">x</b> <b class="text-red-500">+</b> <b class="text-orange-500">4</b> <b class="text-red-500">=</b> <b class="text-orange-500">10</b></h3>
-                        <div class="space-y-4">
-                            <div class="flex gap-3">
-                                <span class="bg-white w-6 h-6 flex items-center justify-center rounded-full text-[10px] font-bold">1</span>
-                                <p class="text-xs">Pindahkan <b class="text-red-500">+4</b> ke kanan: <br> <b class="text-orange-500">2</b><b class="text-indigo-600">x</b> = 10 - 4 = 6</p>
-                            </div>
-                            <div class="flex gap-3">
-                                <span class="bg-white w-6 h-6 flex items-center justify-center rounded-full text-[10px] font-bold">2</span>
-                                <p class="text-xs">Bahagi hasil dengan pekali (<b class="text-orange-500">2</b>): <br> <b class="text-indigo-600">x</b> = 6 ÷ 2</p>
-                            </div>
-                            <p class="font-bold text-green-600 text-lg">Jawapan: x = 3</p>
-                        </div>
+                        <p class="text-sm">1. Pindahkan <b class="text-red-500">+4</b> jadi <b class="text-red-500">-4</b>: 2x = 6</p>
+                        <p class="text-sm">2. Bahagi pekali: x = 6 ÷ 2 = 3</p>
+                        <p class="font-bold text-green-600 text-lg mt-2">Jawapan: x = 3</p>
                     </div>
                 </div>
             </div>
@@ -175,7 +159,7 @@
                     <span class="text-3xl font-bold text-red-500">=</span>
                     <input type="number" id="s1-b" class="w-24 p-3 border-2 border-gray-200 rounded-xl text-center text-xl font-bold text-orange-500" placeholder="?">
                 </div>
-                <button onclick="calculateSolution()" class="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-bold text-lg">Kira Langkah Demi Langkah</button>
+                <button onclick="calculateSolution()" class="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-lg">Kira Sekarang</button>
                 <div id="solver-result" class="mt-6 text-left space-y-3"></div>
             </div>
         </section>
@@ -191,7 +175,6 @@
                     x = ?
                 </div>
                 
-                <!-- Keypad -->
                 <div class="max-w-xs mx-auto grid grid-cols-3 gap-3 mb-8">
                     <button onclick="pressKey('1')" class="key-btn">1</button>
                     <button onclick="pressKey('2')" class="key-btn">2</button>
@@ -210,8 +193,8 @@
                 <button onclick="checkQuizAnswer()" class="w-full max-w-xs bg-green-600 text-white py-5 rounded-2xl font-bold text-xl shadow-xl active:scale-95 transition">Hantar Jawapan</button>
                 <p id="quiz-feedback" class="h-12 mt-4 text-lg font-bold flex items-center justify-center"></p>
 
-                <div class="mt-8 pt-8 border-t border-gray-50 grid grid-cols-2 gap-4">
-                    <div class="text-left">
+                <div class="mt-8 pt-8 border-t border-gray-50 grid grid-cols-2 gap-4 text-left">
+                    <div>
                         <span class="text-gray-400 text-[10px] block font-bold uppercase tracking-widest">Skor Markah</span>
                         <span id="quiz-score" class="text-3xl font-black text-indigo-600">0</span>
                     </div>
@@ -223,7 +206,7 @@
         </section>
     </main>
 
-    <!-- Firebase Imports -->
+    <!-- Firebase -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
         import { getAuth, onAuthStateChanged, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
@@ -237,20 +220,16 @@
 
         let user = null;
 
-        const initAuth = async () => {
-            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                await signInWithCustomToken(auth, __initial_auth_token);
-            } else {
-                await signInAnonymously(auth);
-            }
-        };
-
         onAuthStateChanged(auth, async (u) => {
             if (u) {
                 user = u;
                 checkLocalName();
             } else {
-                initAuth();
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
             }
         });
 
@@ -258,36 +237,38 @@
             const savedName = localStorage.getItem('algebra_user_name');
             if (savedName) {
                 document.getElementById('display-nama').innerText = savedName.toUpperCase();
+                document.getElementById('app-content').classList.remove('hidden-section');
+                document.getElementById('login-overlay').classList.add('hidden-section');
                 loadDataFromCloud();
             } else {
                 document.getElementById('login-overlay').classList.remove('hidden-section');
+                document.getElementById('app-content').classList.add('hidden-section');
             }
         }
 
         window.saveUserName = async () => {
             const name = document.getElementById('input-nama').value.trim();
             if (!name) return;
-            
             localStorage.setItem('algebra_user_name', name);
-            document.getElementById('display-nama').innerText = name.toUpperCase();
-            document.getElementById('login-overlay').classList.add('hidden-section');
-            
+            checkLocalName();
             if (user) {
                 const docRef = doc(db, 'artifacts', appId, 'users', user.uid, 'progress', 'data');
-                await setDoc(docRef, { name: name, score: 0, lastSeen: new Date() }, { merge: true });
-                document.getElementById('sync-status').innerText = "✅ Tersimpan";
+                await setDoc(docRef, { name: name, lastSeen: new Date() }, { merge: true });
             }
+        };
+
+        window.resetUser = () => {
+            localStorage.removeItem('algebra_user_name');
+            location.reload();
         };
 
         async function loadDataFromCloud() {
             if (!user) return;
-            document.getElementById('sync-status').innerText = "Memuatkan...";
             try {
                 const docRef = doc(db, 'artifacts', appId, 'users', user.uid, 'progress', 'data');
                 const docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    window.currentScore = data.score || 0;
+                    window.currentScore = docSnap.data().score || 0;
                     document.getElementById('quiz-score').innerText = window.currentScore;
                 }
                 document.getElementById('sync-status').innerText = "✅ Tersambung";
@@ -375,11 +356,8 @@
             currentLevel = lvl;
             document.querySelectorAll('.level-btn').forEach(btn => btn.classList.remove('level-active'));
             document.getElementById('lvl-' + lvl).classList.add('level-active');
-            
-            // Tunjukkan tutorial yang betul
             document.querySelectorAll('.learn-level-content').forEach(el => el.classList.add('hidden-section'));
             document.getElementById('learn-' + lvl).classList.remove('hidden-section');
-            
             generateQuestion();
         }
 
@@ -433,7 +411,7 @@
             const opp = op === '+' ? '-' : '+';
             container.innerHTML = `
                 <div class="p-5 bg-indigo-50 rounded-2xl border border-indigo-100 shadow-sm text-sm space-y-2">
-                    <p>1. Pindahkan <b class="text-red-500">${op}${a}</b> melepasi simbol <b class="text-red-500">=</b> jadi <b class="text-red-500">${opp}${a}</b>.</p>
+                    <p>1. Pindahkan <b class="text-red-500">${op}${a}</b> jadi <b class="text-red-500">${opp}${a}</b>.</p>
                     <p>2. <b class="text-indigo-600">x</b> = ${b} ${opp} ${a}</p>
                     <p class="font-bold text-green-600 text-lg">3. Jawapan: x = ${ans}</p>
                 </div>

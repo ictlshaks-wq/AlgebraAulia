@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bijak Algebra Aulia- Tutorial & Latihan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+        .active-tab {
+            background-color: #4f46e5;
+            color: white;
+            border-radius: 0.5rem;
+        }
+
+        .level-btn {
+            transition: all 0.2s;
+        }
+
+        .level-active {
+            border-color: #4f46e5;
+            background-color: #eef2ff;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+        .guide-card {
+            border-left-width: 6px;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800">
+
+    <!-- Navigasi -->
+    <nav class="bg-white shadow-sm p-4 sticky top-0 z-20 border-b border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 class="text-2xl font-bold text-indigo-600 flex items-center gap-2">
+                <span class="text-3xl">📐</span> Bijak Algebra Aulia
+            </h1>
+            <div class="bg-gray-100 p-1 rounded-xl flex">
+                <button onclick="showTab('learn')" id="tab-learn" class="tab-btn px-4 py-2 text-sm font-semibold active-tab">Tutorial</button>
+                <button onclick="showTab('solver')" id="tab-solver" class="tab-btn px-4 py-2 text-sm font-semibold text-gray-600">Penyelesai</button>
+                <button onclick="showTab('quiz')" id="tab-quiz" class="tab-btn px-4 py-2 text-sm font-semibold text-gray-600">Latihan</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Kandungan Utama -->
+    <main class="max-w-5xl mx-auto p-4 mt-4">
+
+        <!-- PEMILIH TAHAP -->
+        <div class="mb-8 flex justify-center gap-4">
+            <button onclick="setLevel('beginner')" id="lvl-beginner" class="level-btn px-8 py-3 border-2 rounded-2xl text-base level-active shadow-sm">Tahap 1: Asas</button>
+            <button onclick="setLevel('intermediate')" id="lvl-intermediate" class="level-btn px-8 py-3 border-2 rounded-2xl text-base border-gray-200 text-gray-500 shadow-sm">Tahap 2: Sederhana</button>
+        </div>
+
+        <!-- SEKSYEN: TUTORIAL DETAIL -->
+        <section id="section-learn" class="tab-content">
+            <!-- Beginner Tutorial -->
+            <div id="learn-beginner" class="learn-level-content space-y-8">
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold mb-6 text-indigo-800 flex items-center gap-2">
+                        <span>📖</span> Tutorial Tahap Asas (Mudah)
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Contoh 1 -->
+                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-400">
+                            <h3 class="font-bold text-blue-800 mb-4 uppercase text-sm tracking-widest">Contoh 1: Tambah</h3>
+                            <div class="space-y-3 text-lg">
+                                <p class="bg-white p-2 rounded shadow-sm">Soalan: <b class="text-indigo-600">x</b> <b class="text-red-500">+</b> <b class="text-orange-500">5</b> <b class="text-red-500">=</b> <b class="text-orange-500">12</b></p>
+                                <p class="text-sm">1. Pindahkan <b class="text-red-500">+</b> <b class="text-orange-500">5</b> ke kanan.</p>
+                                <p class="text-sm">2. Ia berubah menjadi <b class="text-red-500">-</b> <b class="text-orange-500">5</b>.</p>
+                                <p class="bg-white p-2 rounded shadow-sm"><b class="text-indigo-600">x</b> <b class="text-red-500">=</b> <b class="text-orange-500">12</b> <b class="text-red-500">-</b> <b class="text-orange-500">5</b></p>
+                                <p class="font-bold text-green-600">Jawapan: x = 7</p>
+                            </div>
+                        </div>
+
+                        <!-- Contoh 2 -->
+                        <div class="bg-orange-50 p-6 rounded-2xl border-l-4 border-orange-400">
+                            <h3 class="font-bold text-orange-800 mb-4 uppercase text-sm tracking-widest">Contoh 2: Tolak</h3>
+                            <div class="space-y-3 text-lg">
+                                <p class="bg-white p-2 rounded shadow-sm">Soalan: <b class="text-indigo-600">x</b> <b class="text-red-500">-</b> <b class="text-orange-500">8</b> <b class="text-red-500">=</b> <b class="text-orange-500">4</b></p>
+                                <p class="text-sm">1. Pindahkan <b class="text-red-500">-</b> <b class="text-orange-500">8</b> ke kanan.</p>
+                                <p class="text-sm">2. Ia berubah menjadi <b class="text-red-500">+</b> <b class="text-orange-500">8</b>.</p>
+                                <p class="bg-white p-2 rounded shadow-sm"><b class="text-indigo-600">x</b> <b class="text-red-500">=</b> <b class="text-orange-500">4</b> <b class="text-red-500">+</b> <b class="text-orange-500">8</b></p>
+                                <p class="font-bold text-green-600">Jawapan: x = 12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intermediate Tutorial -->
+            <div id="learn-intermediate" class="learn-level-content hidden-section space-y-8">
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold mb-6 text-indigo-800 flex items-center gap-2">
+                        <span>📘</span> Tutorial Tahap Sederhana (2 Langkah)
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Contoh 1 -->
+                        <div class="bg-indigo-50 p-6 rounded-2xl border-l-4 border-indigo-400">
+                            <h3 class="font-bold text-indigo-800 mb-4 uppercase text-sm tracking-widest">Contoh 1: Gabungan</h3>
+                            <div class="space-y-3 text-lg">
+                                <p class="bg-white p-2 rounded shadow-sm">Soalan: <b class="text-orange-500">2</b><b class="text-indigo-600">x</b> <b class="text-red-500">+</b> <b class="text-orange-500">4</b> <b class="text-red-500">=</b> <b class="text-orange-500">10</b></p>
+                                <p class="text-xs text-gray-500 italic">Langkah 1: Pindah nombor asing</p>
+                                <p class="bg-white p-2 rounded shadow-sm text-sm"><b class="text-orange-500">2</b><b class="text-indigo-600">x</b> <b class="text-red-500">=</b> <b class="text-orange-500">10</b> <b class="text-red-500">-</b> <b class="text-orange-500">4</b></p>
+                                <p class="text-xs text-gray-500 italic">Langkah 2: Selesaikan nombor yang melekat pada x</p>
+                                <p class="bg-white p-2 rounded shadow-sm text-sm"><b class="text-indigo-600">x</b> <b class="text-red-500">=</b> <b class="text-orange-500">6</b> <b class="text-red-500">÷</b> <b class="text-orange-500">2</b></p>
+                                <p class="font-bold text-green-600">Jawapan: x = 3</p>
+                            </div>
+                        </div>
+
+                        <!-- Contoh 2 -->
+                        <div class="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-400">
+                            <h3 class="font-bold text-purple-800 mb-4 uppercase text-sm tracking-widest">Contoh 2: Tolak & Bahagi</h3>
+                            <div class="space-y-3 text-lg">
+                                <p class="bg-white p-2 rounded shadow-sm">Soalan: <b class="text-orange-500">3</b><b class="text-indigo-600">x</b> <b class="text-red-500">-</b> <b class="text-orange-500">5</b> <b class="text-red-500">=</b> <b class="text-orange-500">10</b></p>
+                                <p class="text-xs text-gray-500 italic">Langkah 1: Pindahkan -5 jadi +5</p>
+                                <p class="bg-white p-2 rounded shadow-sm text-sm"><b class="text-orange-500">3</b><b class="text-indigo-600">x</b> <b class="text-red-500">=</b> <b class="text-orange-500">10</b> <b class="text-red-500">+</b> <b class="text-orange-500">5</b></p>
+                                <p class="text-xs text-gray-500 italic">Langkah 2: Bahagi dengan 3</p>
+                                <p class="bg-white p-2 rounded shadow-sm text-sm"><b class="text-indigo-600">x</b> <b class="text-red-500">=</b> <b class="text-orange-500">15</b> <b class="text-red-500">÷</b> <b class="text-orange-500">3</b></p>
+                                <p class="font-bold text-green-600">Jawapan: x = 5</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKSYEN: PENYELESAI -->
+        <section id="section-solver" class="tab-content hidden-section">
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-bold mb-4">Penyelesai Automatik</h2>
+                <div id="solver-inputs" class="p-8 bg-gray-50 rounded-2xl mb-8">
+                    <div id="solver-ui-beginner" class="solver-ui flex flex-wrap gap-4 items-center justify-center">
+                        <span class="text-3xl font-bold text-indigo-600">x</span>
+                        <select id="s1-op" class="p-3 border-2 border-gray-200 rounded-xl font-bold text-xl text-red-500">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                        <input type="number" id="s1-a" class="w-24 p-3 border-2 border-gray-200 rounded-xl text-center text-xl font-bold text-orange-500" placeholder="a">
+                        <span class="text-3xl font-bold text-red-500">=</span>
+                        <input type="number" id="s1-b" class="w-24 p-3 border-2 border-gray-200 rounded-xl text-center text-xl font-bold text-orange-500" placeholder="b">
+                    </div>
+                    <div id="solver-ui-intermediate" class="solver-ui hidden-section flex flex-wrap gap-4 items-center justify-center">
+                        <input type="number" id="s2-coeff" class="w-20 p-3 border-2 border-gray-200 rounded-xl text-center text-xl font-bold text-orange-500" placeholder="2">
+                        <span class="text-3xl font-bold text-indigo-600">x</span>
+                        <select id="s2-op" class="p-3 border-2 border-gray-200 rounded-xl font-bold text-xl text-red-500">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                        <input type="number" id="s2-a" class="w-24 p-3 border-2 border-gray-200 rounded-xl text-center text-xl font-bold text-orange-500" placeholder="b">
+                        <span class="text-3xl font-bold text-red-500">=</span>
+                        <input type="number" id="s2-b" class="w-24 p-3 border-2 border-gray-200 rounded-xl text-center text-xl font-bold text-orange-500" placeholder="c">
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button onclick="calculateSolution()" class="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-lg hover:bg-indigo-700 transition">Tunjukkan Jalan Kerja</button>
+                    </div>
+                </div>
+                <div id="solver-result" class="hidden">
+                    <div id="solver-steps-container" class="space-y-4"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKSYEN: KUIZ -->
+        <section id="section-quiz" class="tab-content hidden-section">
+            <div class="bg-white rounded-3xl p-10 md:p-16 shadow-sm border border-gray-100 text-center relative">
+                <div class="inline-block bg-indigo-100 text-indigo-700 px-6 py-2 rounded-full text-xs font-bold mb-8 uppercase tracking-widest" id="quiz-lvl-tag">Tahap Asas</div>
+                
+                <div class="mb-12">
+                    <p class="text-gray-400 font-bold uppercase tracking-widest text-sm mb-4">Selesaikan:</p>
+                    <div id="quiz-question-container" class="text-5xl md:text-6xl font-black tracking-tight leading-none">
+                        <!-- Soalan dijana di sini -->
+                    </div>
+                </div>
+                
+                <div class="max-w-xs mx-auto mb-8">
+                    <input type="number" id="quiz-input" class="w-full text-center text-3xl p-5 border-2 border-gray-200 rounded-2xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-50 outline-none transition" placeholder="x = ?">
+                </div>
+
+                <button onclick="checkQuizAnswer()" class="w-full max-w-xs bg-green-600 text-white py-5 rounded-2xl font-bold text-xl hover:bg-green-700 shadow-xl transform active:scale-95 transition">Hantar Jawapan</button>
+                
+                <div class="h-16 mt-6 flex items-center justify-center">
+                    <p id="quiz-feedback" class="text-lg font-bold"></p>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-gray-50 grid grid-cols-2 gap-4">
+                    <div class="text-left">
+                        <span class="text-gray-400 text-sm block font-medium uppercase">Skor</span>
+                        <span id="quiz-score" class="text-3xl font-black text-indigo-600">0</span>
+                    </div>
+                    <div class="text-right flex flex-col items-end">
+                        <button onclick="generateQuestion()" class="text-indigo-600 font-semibold hover:underline flex items-center gap-1 mb-2">Tukar Soalan</button>
+                        <button onclick="showTab('learn')" class="text-xs text-gray-400 hover:text-indigo-500 underline">Perlu bantuan?</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        let currentLevel = 'beginner';
+        let currentScore = 0;
+        let activeQuestion = {};
+
+        function showTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden-section'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active-tab', 'text-gray-600'));
+            document.getElementById('section-' + tab).classList.remove('hidden-section');
+            document.getElementById('tab-' + tab).classList.add('active-tab');
+            if (tab === 'quiz') generateQuestion();
+        }
+
+        function setLevel(lvl) {
+            currentLevel = lvl;
+            document.querySelectorAll('.level-btn').forEach(btn => btn.className = 'level-btn px-8 py-3 border-2 rounded-2xl text-base border-gray-200 text-gray-500 shadow-sm');
+            document.getElementById('lvl-' + lvl).className = 'level-btn px-8 py-3 border-2 rounded-2xl text-base level-active shadow-sm';
+            
+            document.querySelectorAll('.learn-level-content').forEach(el => el.classList.add('hidden-section'));
+            document.getElementById('learn-' + lvl).classList.remove('hidden-section');
+            document.querySelectorAll('.solver-ui').forEach(el => el.classList.add('hidden-section'));
+            document.getElementById('solver-ui-' + lvl).classList.remove('hidden-section');
+
+            const tags = { beginner: 'Tahap Asas', intermediate: 'Tahap Sederhana' };
+            document.getElementById('quiz-lvl-tag').innerText = tags[lvl];
+
+            if (!document.getElementById('section-quiz').classList.contains('hidden-section')) generateQuestion();
+            document.getElementById('solver-result').classList.add('hidden');
+        }
+
+        function generateQuestion() {
+            const container = document.getElementById('quiz-question-container');
+            const feedback = document.getElementById('quiz-feedback');
+            const input = document.getElementById('quiz-input');
+            feedback.innerText = "";
+            input.value = "";
+
+            if (currentLevel === 'beginner') {
+                const a = Math.floor(Math.random() * 12) + 1;
+                const b = Math.floor(Math.random() * 25) + 1;
+                const op = Math.random() > 0.5 ? '+' : '-';
+                activeQuestion = { ans: (op === '+') ? b - a : b + a };
+                
+                container.innerHTML = `
+                    <span class="text-indigo-600">x</span> 
+                    <span class="text-red-500 mx-2">${op}</span> 
+                    <span class="text-orange-500">${a}</span> 
+                    <span class="text-red-500 mx-2">=</span> 
+                    <span class="text-orange-500">${b}</span>
+                `;
+            } else {
+                const coeff = Math.floor(Math.random() * 3) + 2;
+                const a = Math.floor(Math.random() * 10) + 1;
+                const ans = Math.floor(Math.random() * 8) + 1;
+                const op = Math.random() > 0.5 ? '+' : '-';
+                const b = (op === '+') ? (coeff * ans) + a : (coeff * ans) - a;
+                activeQuestion = { ans: ans };
+                
+                container.innerHTML = `
+                    <span class="text-orange-500">${coeff}</span><span class="text-indigo-600">x</span> 
+                    <span class="text-red-500 mx-2">${op}</span> 
+                    <span class="text-orange-500">${a}</span> 
+                    <span class="text-red-500 mx-2">=</span> 
+                    <span class="text-orange-500">${b}</span>
+                `;
+            }
+        }
+
+        function calculateSolution() {
+            const container = document.getElementById('solver-steps-container');
+            const resultBox = document.getElementById('solver-result');
+            container.innerHTML = "";
+            resultBox.classList.remove('hidden');
+
+            if (currentLevel === 'beginner') {
+                const op = document.getElementById('s1-op').value;
+                const a = parseFloat(document.getElementById('s1-a').value);
+                const b = parseFloat(document.getElementById('s1-b').value);
+                if (isNaN(a) || isNaN(b)) return;
+                
+                const ans = (op === '+') ? b - a : b + a;
+                const oppOp = (op === '+') ? '-' : '+';
+                
+                addStep(container, 1, `Persamaan asal: <b class="text-indigo-600">x</b> <b class="text-red-500">${op}</b> <b class="text-orange-500">${a}</b> <b class="text-red-500">=</b> <b class="text-orange-500">${b}</b>`);
+                addStep(container, 2, `Pindahkan <b class="text-red-500">${op}</b><b class="text-orange-500">${a}</b> ke kanan jadi <b class="text-red-500">${oppOp}</b><b class="text-orange-500">${a}</b>.`);
+                addStep(container, 3, `Langkah: <b class="text-indigo-600">x</b> <b class="text-red-500">=</b> <b class="text-orange-500">${b}</b> <b class="text-red-500">${oppOp}</b> <b class="text-orange-500">${a}</b>`);
+                addStep(container, 4, `Kira hasil: <b class="text-indigo-600 text-xl font-black">x = ${ans}</b>`, true);
+
+            } else {
+                const coeff = parseFloat(document.getElementById('s2-coeff').value);
+                const op = document.getElementById('s2-op').value;
+                const a = parseFloat(document.getElementById('s2-a').value);
+                const b = parseFloat(document.getElementById('s2-b').value);
+                if (isNaN(coeff) || isNaN(a) || isNaN(b)) return;
+
+                const afterMove = (op === '+') ? b - a : b + a;
+                const oppOp = (op === '+') ? '-' : '+';
+                const final = afterMove / coeff;
+
+                addStep(container, 1, `Persamaan: <b class="text-orange-500">${coeff}</b><b class="text-indigo-600">x</b> <b class="text-red-500">${op}</b> <b class="text-orange-500">${a}</b> <b class="text-red-500">=</b> <b class="text-orange-500">${b}</b>`);
+                addStep(container, 2, `Langkah 1: Pindahkan <b class="text-red-500">${op}</b><b class="text-orange-500">${a}</b> jadi <b class="text-red-500">${oppOp}</b><b class="text-orange-500">${a}</b>.`);
+                addStep(container, 3, `Langkah 2: <b class="text-orange-500">${coeff}</b><b class="text-indigo-600">x</b> <b class="text-red-500">=</b> <b class="text-orange-500">${afterMove}</b>`);
+                addStep(container, 4, `Langkah 3: Bahagi hasil dengan <b class="text-orange-500">${coeff}</b>.`);
+                addStep(container, 5, `Jawapan Akhir: <b class="text-indigo-600 text-xl font-black">x = ${Number.isInteger(final) ? final : final.toFixed(2)}</b>`, true);
+            }
+        }
+
+        function addStep(parent, num, text, isLast = false) {
+            const div = document.createElement('div');
+            div.className = `p-5 rounded-2xl border ${isLast ? 'bg-green-50 border-green-200' : 'bg-white border-gray-100 shadow-sm'} flex gap-4 items-center`;
+            div.innerHTML = `<span class="h-10 w-10 shrink-0 flex items-center justify-center rounded-full ${isLast ? 'bg-green-600 text-white' : 'bg-indigo-100 text-indigo-600'} font-bold">${num}</span> <p>${text}</p>`;
+            parent.appendChild(div);
+        }
+
+        function checkQuizAnswer() {
+            const userVal = parseFloat(document.getElementById('quiz-input').value);
+            const feedback = document.getElementById('quiz-feedback');
+            if (userVal === activeQuestion.ans) {
+                feedback.innerText = "🌟 Tahniah! Jawapan Betul.";
+                feedback.className = "text-xl font-black text-green-600";
+                currentScore += 10;
+                document.getElementById('quiz-score').innerText = currentScore;
+                setTimeout(generateQuestion, 2000);
+            } else {
+                feedback.innerText = "❌ Salah! Cuba semak tutorial atau pindahkan nombor.";
+                feedback.className = "text-lg font-bold text-red-500";
+            }
+        }
+
+        window.onload = () => generateQuestion();
+    </script>
+</body>
+</html>
